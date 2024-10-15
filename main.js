@@ -12,7 +12,6 @@
 const age = parseInt(prompt("Inserisci la tua età")); //chiedo all'utente i dati e li converto in numeri
 const distance = parseInt(prompt("Quanti km devi viaggiare?")); //chiedo all'utente i dati e li converto in numeri
 
-console.log(age, distance); //da togliere
 // ELABORAZIONE
 
 //dichiarazione variabili di questa sezione
@@ -41,10 +40,13 @@ if (age < 18) {
 }
 
 //calcolo il prezzo finale
-price = price * discount;
+price = (price * discount).toFixed(2);
 
 // OUTPUT
 if (isAgeValid && isDistanceValid) {
   // comunico l'output solo se i dati sono validi
   console.log(`Il biglietto costa ${price}€!`);
+  if (discount != 1) {
+    console.log(`Ed è stato scontato del ${(1 - discount) * 100}%!`);
+  }
 }
